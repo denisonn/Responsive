@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ConsultaClientes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clienteIn" type="tns:ClienteIn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ClienteIn">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SCo_Cliente" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCo_Vendedor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCo_Zona" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SDescrip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SFiltro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SValor" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IDia" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCo_Empresa" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ConsultaClientesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultaClientesResult" type="tns:ArrayOfClienteOut" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfClienteOut">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ClienteOut" nillable="true" type="tns:ClienteOut" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ClienteOut">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SCo_Cliente" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCliente_Des" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STipo_Cte" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCte_DirecF" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCte_DirecE" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BInactivo" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCte_Respon" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCte_Telefs" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCond_PgoCte" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ICte_Plazo_Pag" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCte_CodZona" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SZona_Desc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCte_CoSegm" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SSegmto_Desc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCte_CoVend" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SHora_Caja" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SFrec_Visit" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DMont_Cred" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="BLunes" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="BMartes" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="BMiercoles" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="BJueves" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="BViernes" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="BSabado" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="BDomingo" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCte_Rif" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCte_Nit" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BContri_Esp" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCte_Cdad" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ConsultaZonas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="zonaIn" type="tns:ZonaIn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ZonaIn">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SCo_Zona" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCo_Empresa" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ConsultaZonasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultaZonasResult" type="tns:ArrayOfZonaOut" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfZonaOut">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ZonaOut" nillable="true" type="tns:ZonaOut" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ZonaOut">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SCo_Zona" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SZona_Des" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ConsultaSegmentos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="segmentoIn" type="tns:SegmentoIn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SegmentoIn">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SCo_Seg" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCo_Empresa" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ConsultaSegmentosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultaSegmentosResult" type="tns:ArrayOfSegmentoOut" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSegmentoOut">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SegmentoOut" nillable="true" type="tns:SegmentoOut" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SegmentoOut">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SCo_Seg" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SSeg_Des" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ConsultarSucursales">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sucuin" type="tns:SucursalIn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SucursalIn">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Co_usuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Co_empresa" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ConsultarSucursalesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarSucursalesResult" type="tns:ArrayOfSucursalOut" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSucursalOut">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SucursalOut" nillable="true" type="tns:SucursalOut" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SucursalOut">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Co_sucur" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sucur_des" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ConsultaClientesSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaClientes" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaClientesSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaClientesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaZonasSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaZonas" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaZonasSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaZonasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaSegmentosSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaSegmentos" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaSegmentosSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaSegmentosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarSucursalesSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarSucursales" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarSucursalesSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarSucursalesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WsClientesSoap">
+    <wsdl:operation name="ConsultaClientes">
+      <wsdl:input message="tns:ConsultaClientesSoapIn" />
+      <wsdl:output message="tns:ConsultaClientesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaZonas">
+      <wsdl:input message="tns:ConsultaZonasSoapIn" />
+      <wsdl:output message="tns:ConsultaZonasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaSegmentos">
+      <wsdl:input message="tns:ConsultaSegmentosSoapIn" />
+      <wsdl:output message="tns:ConsultaSegmentosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarSucursales">
+      <wsdl:input message="tns:ConsultarSucursalesSoapIn" />
+      <wsdl:output message="tns:ConsultarSucursalesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WsClientesSoap" type="tns:WsClientesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConsultaClientes">
+      <soap:operation soapAction="http://tempuri.org/ConsultaClientes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaZonas">
+      <soap:operation soapAction="http://tempuri.org/ConsultaZonas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaSegmentos">
+      <soap:operation soapAction="http://tempuri.org/ConsultaSegmentos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarSucursales">
+      <soap:operation soapAction="http://tempuri.org/ConsultarSucursales" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WsClientesSoap12" type="tns:WsClientesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConsultaClientes">
+      <soap12:operation soapAction="http://tempuri.org/ConsultaClientes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaZonas">
+      <soap12:operation soapAction="http://tempuri.org/ConsultaZonas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaSegmentos">
+      <soap12:operation soapAction="http://tempuri.org/ConsultaSegmentos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarSucursales">
+      <soap12:operation soapAction="http://tempuri.org/ConsultarSucursales" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WsClientes">
+    <wsdl:port name="WsClientesSoap" binding="tns:WsClientesSoap">
+      <soap:address location="http://appweb2/WSappmovil/WsClientes.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WsClientesSoap12" binding="tns:WsClientesSoap12">
+      <soap12:address location="http://appweb2/WSappmovil/WsClientes.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

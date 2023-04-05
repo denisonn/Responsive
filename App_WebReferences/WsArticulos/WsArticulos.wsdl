@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ConsultaArticulos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="articuloIn" type="tns:ArticuloIn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArticuloIn">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SCo_Linea" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCo_SubLinea" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCo_Categoria" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SFiltro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SValor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCo_Empresa" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCo_Sucursal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCo_Precio" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ConsultaArticulosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultaArticulosResult" type="tns:ArrayOfArticuloOut" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfArticuloOut">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ArticuloOut" nillable="true" type="tns:ArticuloOut" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArticuloOut">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Sco_art" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sart_des" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sco_lin" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Slin_des" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sco_subl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ssubl_des" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sco_cat" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Scat_des" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sco_color" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sdes_color" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sco_ubicacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sdes_ubicacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Scod_proc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sdes_proc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sitem" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Smodelo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sref" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Stipo_imp" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Porc_imp" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sco_uni" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sco_alma" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Stock" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sco_precio" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Precio" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ConsultaLineas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="lineaIn" type="tns:LineaIn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LineaIn">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SCo_Linea" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCo_Empresa" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ConsultaLineasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultaLineasResult" type="tns:ArrayOfLineaOut" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLineaOut">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LineaOut" nillable="true" type="tns:LineaOut" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LineaOut">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SCo_Linea" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SLinea_Des" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ConsultaSubLineas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sublineaIn" type="tns:SubLineaIn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SubLineaIn">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SCo_Linea" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCo_SubLinea" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCo_Empresa" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ConsultaSubLineasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultaSubLineasResult" type="tns:ArrayOfSubLineaOut" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSubLineaOut">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SubLineaOut" nillable="true" type="tns:SubLineaOut" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SubLineaOut">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SCo_SublLinea" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SSublLinea_Des" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCo_Linea" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ConsultaCategorias">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="categoriaIn" type="tns:CategoriaIn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CategoriaIn">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SCategoria" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCo_Empresa" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ConsultaCategoriasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultaCategoriasResult" type="tns:ArrayOfCategoriaOut" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCategoriaOut">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CategoriaOut" nillable="true" type="tns:CategoriaOut" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CategoriaOut">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SCo_Categoria" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCategoria_Des" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ConsultaArticulosSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaArticulos" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaArticulosSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaArticulosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaLineasSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaLineas" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaLineasSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaLineasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaSubLineasSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaSubLineas" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaSubLineasSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaSubLineasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaCategoriasSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaCategorias" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaCategoriasSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaCategoriasResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WsArticulosSoap">
+    <wsdl:operation name="ConsultaArticulos">
+      <wsdl:input message="tns:ConsultaArticulosSoapIn" />
+      <wsdl:output message="tns:ConsultaArticulosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaLineas">
+      <wsdl:input message="tns:ConsultaLineasSoapIn" />
+      <wsdl:output message="tns:ConsultaLineasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaSubLineas">
+      <wsdl:input message="tns:ConsultaSubLineasSoapIn" />
+      <wsdl:output message="tns:ConsultaSubLineasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaCategorias">
+      <wsdl:input message="tns:ConsultaCategoriasSoapIn" />
+      <wsdl:output message="tns:ConsultaCategoriasSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WsArticulosSoap" type="tns:WsArticulosSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConsultaArticulos">
+      <soap:operation soapAction="http://tempuri.org/ConsultaArticulos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaLineas">
+      <soap:operation soapAction="http://tempuri.org/ConsultaLineas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaSubLineas">
+      <soap:operation soapAction="http://tempuri.org/ConsultaSubLineas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaCategorias">
+      <soap:operation soapAction="http://tempuri.org/ConsultaCategorias" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WsArticulosSoap12" type="tns:WsArticulosSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConsultaArticulos">
+      <soap12:operation soapAction="http://tempuri.org/ConsultaArticulos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaLineas">
+      <soap12:operation soapAction="http://tempuri.org/ConsultaLineas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaSubLineas">
+      <soap12:operation soapAction="http://tempuri.org/ConsultaSubLineas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaCategorias">
+      <soap12:operation soapAction="http://tempuri.org/ConsultaCategorias" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WsArticulos">
+    <wsdl:port name="WsArticulosSoap" binding="tns:WsArticulosSoap">
+      <soap:address location="http://appweb2/WSappmovil/WsArticulos.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WsArticulosSoap12" binding="tns:WsArticulosSoap12">
+      <soap12:address location="http://appweb2/WSappmovil/WsArticulos.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

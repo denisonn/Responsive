@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="InsertarPedido">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pedidoVentaIn" type="tns:PedidoVentaIn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PedidoVentaIn">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SPedidoXml" type="tns:PedidoVenta" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCo_Usuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCo_Sucu" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCo_Empresa" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PedidoVenta">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Pedido" type="tns:Pedido" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Pedido">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="descrip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="co_cli" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="co_ven" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="fec_emis" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="porc_desc_glob" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="monto_desc_glob" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="porc_reca" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="monto_reca" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="total_bruto" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="monto_imp" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="otros1" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="otros2" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="otros3" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="total_neto" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="PedidoRenglon" type="tns:PedidoRenglon" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PedidoRenglon">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="reng_num" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="co_art" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="co_alma" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="total_art" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="co_uni" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="prec_vta" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="monto_desc" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="tipo_imp" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="monto_imp" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="reng_neto" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="co_precio" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="porc_imp" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InsertarPedidoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertarPedidoResult" type="tns:PedidoVentaOut" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PedidoVentaOut">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SError" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ConsultarPedido">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConspedidoIn" type="tns:ConsultarPedidoVentaIn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ConsultarPedidoVentaIn">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SCo_Vendedor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCo_Cli" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DFecha_d" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DFecha_h" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCo_Empresa" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ConsultarPedidoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarPedidoResult" type="tns:ArrayOfConsultarPedidoVentaOut" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfConsultarPedidoVentaOut">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ConsultarPedidoVentaOut" nillable="true" type="tns:ConsultarPedidoVentaOut" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ConsultarPedidoVentaOut">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Doc_num" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fec_emis" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Total_bruto" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Monto_imp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Monto_desc_glob" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Porc_desc_glob" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Total_neto" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Co_cli" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cli_des" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rif" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Co_ven" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ven_des" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Co_art" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Art_des" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Co_uni" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Total_art" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Reng_neto" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prec_vta" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="InsertarPedidoSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertarPedido" />
+  </wsdl:message>
+  <wsdl:message name="InsertarPedidoSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertarPedidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarPedidoSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarPedido" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarPedidoSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarPedidoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WsPedidosSoap">
+    <wsdl:operation name="InsertarPedido">
+      <wsdl:input message="tns:InsertarPedidoSoapIn" />
+      <wsdl:output message="tns:InsertarPedidoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPedido">
+      <wsdl:input message="tns:ConsultarPedidoSoapIn" />
+      <wsdl:output message="tns:ConsultarPedidoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WsPedidosSoap" type="tns:WsPedidosSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertarPedido">
+      <soap:operation soapAction="http://tempuri.org/InsertarPedido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPedido">
+      <soap:operation soapAction="http://tempuri.org/ConsultarPedido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WsPedidosSoap12" type="tns:WsPedidosSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertarPedido">
+      <soap12:operation soapAction="http://tempuri.org/InsertarPedido" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPedido">
+      <soap12:operation soapAction="http://tempuri.org/ConsultarPedido" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WsPedidos">
+    <wsdl:port name="WsPedidosSoap" binding="tns:WsPedidosSoap">
+      <soap:address location="http://appweb2/WSappmovil/WsPedidos.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WsPedidosSoap12" binding="tns:WsPedidosSoap12">
+      <soap12:address location="http://appweb2/WSappmovil/WsPedidos.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

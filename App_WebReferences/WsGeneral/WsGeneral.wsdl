@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ConsultaTasa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="t" type="tns:TasaIn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TasaIn">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SCo_Empresa" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ConsultaTasaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultaTasaResult" type="tns:ArrayOfDecimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDecimal">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="decimal" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ConsultaConsecutivo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="C" type="tns:ConsecutivoIn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ConsecutivoIn">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SSucursal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCo_Empresa" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ConsultaConsecutivoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultaConsecutivoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ConsultaTasaSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaTasa" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaTasaSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaTasaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaConsecutivoSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaConsecutivo" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaConsecutivoSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaConsecutivoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WsGeneralSoap">
+    <wsdl:operation name="ConsultaTasa">
+      <wsdl:input message="tns:ConsultaTasaSoapIn" />
+      <wsdl:output message="tns:ConsultaTasaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaConsecutivo">
+      <wsdl:input message="tns:ConsultaConsecutivoSoapIn" />
+      <wsdl:output message="tns:ConsultaConsecutivoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WsGeneralSoap" type="tns:WsGeneralSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConsultaTasa">
+      <soap:operation soapAction="http://tempuri.org/ConsultaTasa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaConsecutivo">
+      <soap:operation soapAction="http://tempuri.org/ConsultaConsecutivo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WsGeneralSoap12" type="tns:WsGeneralSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConsultaTasa">
+      <soap12:operation soapAction="http://tempuri.org/ConsultaTasa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaConsecutivo">
+      <soap12:operation soapAction="http://tempuri.org/ConsultaConsecutivo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WsGeneral">
+    <wsdl:port name="WsGeneralSoap" binding="tns:WsGeneralSoap">
+      <soap:address location="http://appweb2/WSappmovil/WsGeneral.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WsGeneralSoap12" binding="tns:WsGeneralSoap12">
+      <soap12:address location="http://appweb2/WSappmovil/WsGeneral.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

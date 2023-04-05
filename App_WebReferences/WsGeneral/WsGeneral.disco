@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://appweb2/WSappmovil/WsGeneral.asmx?wsdl" docRef="http://appweb2/WSappmovil/WsGeneral.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://appweb2/WSappmovil/WsGeneral.asmx" xmlns:q1="http://tempuri.org/" binding="q1:WsGeneralSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://appweb2/WSappmovil/WsGeneral.asmx" xmlns:q2="http://tempuri.org/" binding="q2:WsGeneralSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

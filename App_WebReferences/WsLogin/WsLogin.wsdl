@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuarioIn" type="tns:UsuarioIn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UsuarioIn">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SCod_Usuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SPassword" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoginResult" type="tns:UsuarioOut" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UsuarioOut">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SUsuario_Estatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Slista_Empresas" type="tns:ArrayOfEmpresaOut" />
+          <s:element minOccurs="0" maxOccurs="1" name="SUsuario_Codigo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEmpresaOut">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EmpresaOut" nillable="true" type="tns:EmpresaOut" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EmpresaOut">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Co_empresa" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionEmpresa" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rif" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="EstatusUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuarioIn" type="tns:UsuarioIn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EstatusUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EstatusUserResult" type="tns:UsuarioOut" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="EstatusUserSoapIn">
+    <wsdl:part name="parameters" element="tns:EstatusUser" />
+  </wsdl:message>
+  <wsdl:message name="EstatusUserSoapOut">
+    <wsdl:part name="parameters" element="tns:EstatusUserResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WsLoginSoap">
+    <wsdl:operation name="Login">
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EstatusUser">
+      <wsdl:input message="tns:EstatusUserSoapIn" />
+      <wsdl:output message="tns:EstatusUserSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WsLoginSoap" type="tns:WsLoginSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EstatusUser">
+      <soap:operation soapAction="http://tempuri.org/EstatusUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WsLoginSoap12" type="tns:WsLoginSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EstatusUser">
+      <soap12:operation soapAction="http://tempuri.org/EstatusUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WsLogin">
+    <wsdl:port name="WsLoginSoap" binding="tns:WsLoginSoap">
+      <soap:address location="http://appweb2/WSappmovil/WsLogin.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WsLoginSoap12" binding="tns:WsLoginSoap12">
+      <soap12:address location="http://appweb2/WSappmovil/WsLogin.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
